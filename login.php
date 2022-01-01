@@ -8,7 +8,7 @@
         $password = $_POST['password'];
 
         if(!empty($username) && !empty($password)){
-            //CHECK IF USER IS IN THERE, RESULT VAR CARIES THE QUERY
+            //CHECK IF USER IS IN THERE, $result CARIES THE QUERY
             $query = "SELECT * FROM users where username = '$username' LIMIT 1"; 
             $result = mysqli_query($con, $query);
             
