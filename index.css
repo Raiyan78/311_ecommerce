@@ -1,5 +1,9 @@
 .products{
     border: 10px solid #4b70b6;
     background-color: rgb(213, 218, 228);
-    float: left;
+    padding-bottom:10;
 }
+/* .main-body{
+    margin: 0px;
+    padding: 0;
+} */

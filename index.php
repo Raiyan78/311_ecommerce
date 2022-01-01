@@ -1,3 +1,27 @@
+<?php
+    session_start();
+    include("connection.php");
+    include("function.php");
+
+    $user_data = check_login($con);
+    $product_id = array();
+
+    if(filter_input(INPUT_POST, 'Add')){
+        if(isset($_SESSION['shopping_cart'])){
+
+        }else{ //if shoppin cart doesnt exist create first product with array key -> 0
+            $_SESSION['shopping_cart'][0] = array(
+                'Product_ID' => filter_input(INPUT_GET, 'ProductID'),
+                'Product_Name' =>filter_input(INPUT_GET, 'ProductNa'),
+                'Product_Price'=> filter_input(INPUT_GET, 'price'),
+                'Product_Stock'=> filter_input(INPUT_GET, 'Stock'),
+            );
+
+
+        }
+    }
+    print_r($_SESSION);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,13 +33,35 @@
     <title>Home</title>
 </head>
 <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.php">311 Ecommerce</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <h4><?php echo $user_data['username']?></h4>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <p class="fw-normal" style="color: white">Welcome <?php echo $user_data['username']?></p>
+                </form>
+                </div>
+            </div>
+        </nav>
+
     <div class="container">
         <?php
-            session_start();
-            include("connection.php");
-            include("function.php");
-            $user_data = check_login($con);
-            $_SESSION;
+            // session_start();
+            // include("connection.php");
+            // include("function.php");
+            // $user_data = check_login($con);
+            // $_SESSION;
             $query = "Select * from products order by ProductID ASC";
             $result = mysqli_query($con, $query);
             if(mysqli_num_rows($result) > 0):
