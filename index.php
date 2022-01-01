@@ -14,7 +14,8 @@
             session_start();
             include("connection.php");
             include("function.php");
-
+            $user_data = check_login($con);
+            $_SESSION;
             $query = "Select * from products order by ProductID ASC";
             $result = mysqli_query($con, $query);
             if(mysqli_num_rows($result) > 0):
