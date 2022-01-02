@@ -3,6 +3,11 @@
     background-color: rgb(213, 218, 228);
     padding-bottom:10;
 }
+.button{
+    background-color: cornflowerblue;
+    text-align: center;
+    
+}
 /* .main-body{
     margin: 0px;
     padding: 0;
