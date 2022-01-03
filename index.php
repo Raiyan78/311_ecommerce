@@ -51,7 +51,7 @@
             
     
         }
-        pre_r($_SESSION['cart']);
+        //pre_r($_SESSION['cart']);
     }
 
     //Remove from cart button
@@ -87,9 +87,6 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="cart.php">Cart</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="logout.php">Logout</a>
                         <!-- <input type="submit" name="logout" class="btn btn-info" value="Log Out"> -->
@@ -182,14 +179,13 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <!-- //Checkout button -->
+                    <!-- Checkout button -->
                     <td colspan="5">
                         <?php
                         if(isset($_SESSION['cart'])):
                             if(count($_SESSION['cart']) > 0):
                         ?>
-                        <a href="cart.php" class="button" name="checkout">Checkout</a> 
-                        <!-- <input type="submit" name="checkout" class="btn btn-info" value="Checkout">         -->
+                        <a href="cart.php" class="button" name="checkout">Checkout</a>
                         <?php endif;
                             endif;
                         ?>

@@ -18,12 +18,11 @@
             //Insert CartID and username in Cart Table
             $query_cart = "INSERT INTO cart (CartID, username) values ('$cart_id', '$username')";
             mysqli_query($con, $query_cart);
-
-            //Count how many array in session cart
-            //$count = count($_SESSION['cart']);
             
             //Put the id column in a variable
             $product_ids = array_column($_SESSION['cart'], 'id');
+
+            //Put quantity column in a variable
             $product_quantity = array_column($_SESSION['cart'], 'quantity');
 
             //Loop through each product
@@ -38,5 +37,5 @@
         }
     }
 
-    //header("Location: logout.php")
+    header("Location: logout.php")
 ?>
