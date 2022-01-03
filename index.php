@@ -6,11 +6,6 @@
     $user_data = check_login($con); //Check if a user is logged in
 
     //If user clicked logout button
-    if(isset($_GET['logout'])) {
-        session_destroy();
-        unset($_SESSION['username']);
-        header('location:login.php');
-    }
 
     //If user clicked checkout button
     
@@ -51,11 +46,12 @@
             
     
         }
-        //pre_r($_SESSION['cart']);
+        pre_r($_SESSION['cart']);
     }
 
     //Remove from cart button
-    if(filter_input(INPUT_GET, 'action')=='delete'){
+    //Nirob
+    if(filter_input(INPUT_GET, 'action') =='delete'){
         foreach($_SESSION['cart'] as $key => $product){
             if($product['id'] == filter_input(INPUT_GET, 'id')){
                 unset($_SESSION['cart'][$key]);
@@ -105,11 +101,8 @@
     <!-- item list -->
     <div class="container">
         <?php
-            // session_start();
-            // include("connection.php");
-            // include("function.php");
-            // $user_data = check_login($con);
-            // $_SESSION;
+
+            //Rafi
             $query = "Select * from products order by ProductID ASC";
             $result = mysqli_query($con, $query);
             if(mysqli_num_rows($result) > 0):
