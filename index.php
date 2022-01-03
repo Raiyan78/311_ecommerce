@@ -12,6 +12,10 @@
         header('location:login.php');
     }
 
+    //If user clicked checkout button
+    
+    
+    //Add to cart logic
     if(filter_input(INPUT_POST, 'add_to_cart')){ //After clicking add to cart
         if(isset($_SESSION['cart'])){ //Check if SESSION cart already exists 
             $count = count($_SESSION['cart']); //How many product in shopping cart
@@ -184,7 +188,8 @@
                         if(isset($_SESSION['cart'])):
                             if(count($_SESSION['cart']) > 0):
                         ?>
-                        <a href="#" class="button">Checkout</a>         
+                        <a href="cart.php" class="button" name="checkout">Checkout</a> 
+                        <!-- <input type="submit" name="checkout" class="btn btn-info" value="Checkout">         -->
                         <?php endif;
                             endif;
                         ?>
